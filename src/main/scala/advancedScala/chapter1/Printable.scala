@@ -15,13 +15,24 @@ object PrintableInstances {
 
   implicit val printableCat = new Printable[Cat] {
     override def format(value: Cat): String =
-      s"${PrintSyntax.format(value.name)} is a ${PrintSyntax.format(value.age)} year-old ${PrintSyntax.format(value.color)} cat."
+      s"${Printable.format(value.name)} is a ${Printable.format(value.age)} year-old ${Printable.format(value.color)} cat."
   }
 }
 
+object Printable {
+  def format[A](value: A)(implicit printable: Printable[A]): String = printable.format(value)
+
+  def print[A](value: A)(implicit printable: Printable[A]): Unit = println(format(value))
+}
+
 object PrintSyntax {
-  def format[A](value: A)(implicit printable: Printable[A]) = printable.format(value)
-  def print[A](value: A)(implicit printable: Printable[A]) = println(format(value))
+
+  implicit class PrintOps[A](value: A) {
+    def format(implicit p: Printable[A]): String = p.format(value)
+
+    def print(implicit p: Printable[A]): Unit = println(p.format(value))
+  }
+
 }
 
 case class Cat(name: String, age: Int, color: String)
@@ -30,7 +41,9 @@ object Main {
   def main(args: Array[String]): Unit = {
     // Need this to get the type class instances.
     import PrintableInstances._
-    val cat = Cat("Fluffy", 2, "black")
-    PrintSyntax.print(cat)
+    // Need this to get the extension methods.
+    import PrintSyntax._
+    Printable.print(Cat("Fluffy", 2, "black"))
+    Cat("Blinky", 10, "orange").print
   }
 }
