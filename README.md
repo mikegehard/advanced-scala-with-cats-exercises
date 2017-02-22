@@ -33,3 +33,10 @@ scala> import advancedScala.chapter1.PrintableInstances._
 scala> PrintSyntax.format("Hello")
 res1: String = Hello
 ```
+
+There are also main programs for each chapter that exercise the code. You can run these via `sbt run-main`.
+
+For example:
+```
+$ sbt "run-main advancedScala.chapter1.Main"
+```
