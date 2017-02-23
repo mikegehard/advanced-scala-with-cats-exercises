@@ -35,8 +35,6 @@ object PrintSyntax {
 
 }
 
-case class Cat(name: String, age: Int, color: String)
-
 object PrintableMain {
   def main(args: Array[String]): Unit = {
     // Need this to get the type class instances.
