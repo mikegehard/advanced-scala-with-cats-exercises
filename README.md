@@ -38,5 +38,5 @@ There are also main programs for each chapter that exercise the code. You can ru
 
 For example:
 ```
-$ sbt "run-main advancedScala.chapter1.Main"
+$ sbt "run-main advancedScala.chapter1.ShowMain"
 ```
