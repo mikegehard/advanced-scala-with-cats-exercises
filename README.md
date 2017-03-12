@@ -40,3 +40,11 @@ For example:
 ```
 $ sbt "run-main advancedScala.chapter1.ShowMain"
 ```
+## Running in IntelliJ
+
+1. Install IntelliJ Community Edition from https://www.jetbrains.com/idea/download/#section=mac
+2. Open IntelliJ
+3. Select `File -> New -> Project from existing sources...` or `Import Project`
+4. Select the `build.sbt` file for this project from the file selection dialog.
+5. Let IntelliJ do all of the work it needs to do.
+6. Once a little stacked blue window looking icon shows up next to one of the `main` methods, you should be ready to go. You can click on this icon to run the main method.
