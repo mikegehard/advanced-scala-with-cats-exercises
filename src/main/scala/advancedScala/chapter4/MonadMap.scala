@@ -8,10 +8,3 @@ trait Monad[F[_]] {
   def map[A, B](value: F[A])(f: A => B): F[B] =
     flatMap(value)(a => pure(f(a)))
 }
-
-object MonadMapMain {
-  def main(args: Array[String]): Unit = {
-
-
-  }
-}
