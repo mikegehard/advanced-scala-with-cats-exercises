@@ -17,7 +17,7 @@ class BooleanAndMonoid extends PropSpec with PropertyChecks {
 
   property("identity law holds") {
     forAll { (a: Boolean) =>
-      assert(m.combine(a, m.empty) == m.combine(m.empty, a))
+      assert(m.combine(a, m.empty) == a)
     }
   }
 }
@@ -35,7 +35,7 @@ class BooleanOrMonoid extends PropSpec with PropertyChecks {
 
   property("identity law holds") {
     forAll { (a: Boolean) =>
-      assert(m.combine(a, m.empty) == m.combine(m.empty, a))
+      assert(m.combine(a, m.empty) == a)
     }
   }
 }

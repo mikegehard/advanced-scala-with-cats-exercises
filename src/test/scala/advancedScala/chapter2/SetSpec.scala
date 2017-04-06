@@ -16,7 +16,7 @@ class SetUnion extends PropSpec with PropertyChecks {
 
   property("identity law holds") {
     forAll { (a: Set[Int]) =>
-      assert(m.combine(a, m.empty) == m.combine(m.empty, a))
+      assert(m.combine(a, m.empty) == a)
     }
   }
 }
